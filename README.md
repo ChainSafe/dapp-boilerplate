@@ -15,7 +15,7 @@ This repo makes use of a React, Redux + Saga, Reselect boilerplate
 ### Stack
 
 * JS Framework: [React](https://github.com/facebook/react) + [Typescript](https://github.com/microsoft/TypeScript)
-* SEO & Metadata: [Helment.js](https://helmetjs.github.io/)
+* SEO & Metadata: [Helmet.js](https://helmetjs.github.io/)
 * Blockchain components: [Ethers.js](https://github.com/ethers-io/ethers.js/) + [web3-react](https://github.com/NoahZinsmeister/web3-react)
 * Styling: [JSS](https://cssinjs.org/?v=v10.0.3) + [Material UI](https://material-ui.com/)
 * State management: [Redux](https://redux.js.org/) + [Redux-Saga](https://redux-saga.js.org/) + [Reselect](https://github.com/reduxjs/reselect)
