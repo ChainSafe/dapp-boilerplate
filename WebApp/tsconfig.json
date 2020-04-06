@@ -29,11 +29,12 @@
     "strictFunctionTypes": false,
     "pretty": true,
     "removeComments": true,
+    "resolveJsonModule": true,
     "sourceMap": true,
     "skipLibCheck": true
   },
   "exclude": [
-      "node_modules", 
+      "node_modules",
       "../node_modules",
   ]
 }
