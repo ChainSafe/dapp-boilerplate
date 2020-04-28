@@ -67,6 +67,6 @@ To build the project across workspaces, at the root of the directory, run the co
 
 ## Contributions
 
-Frontend boilerplate designed & crafted originally by [@panterazar](https://github.com/panterazar)
+Frontend boilerplate designed & crafted originally by [@FSM1](https://github.com/FSM1)/[@panterazar](https://github.com/panterazar)
 
 General updates & modifications by [@RyRy79261](https://github.com/RyRy79261)
