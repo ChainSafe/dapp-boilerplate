@@ -14,6 +14,7 @@ const availableLanguages = [
   { id: "en", label: "English" },
 ]
 
+console.log(process.env.INFURA_PROJECT_ID)
 const onboardConfig = {
   dappId: process.env.REACT_APP_BLOCKNATIVE_ID || "",
   walletSelect: {
@@ -22,7 +23,7 @@ const onboardConfig = {
       {
         walletName: "trust",
         rpcUrl:
-          `https://mainnet.infura.io/v3/${process.env.INFURA_PROJECT_ID}`
+          `https://mainnet.infura.io/v3/${process.env.REACT_APP_INFURA_PROJECT_ID}`
       },
       { walletName: "metamask", preferred: true },
       { walletName: "authereum" },
@@ -32,7 +33,7 @@ const onboardConfig = {
       { walletName: "status" },
       {
         walletName: "walletConnect",
-        infuraKey: process.env.INFURA_PROJECT_ID,
+        infuraKey: process.env.REACT_APP_INFURA_PROJECT_ID,
         preferred: true
       }
     ]

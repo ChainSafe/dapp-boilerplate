@@ -17,6 +17,7 @@ const useStyles = makeStyles(
       bodyWrapper: {
       },
       content: {
+        padding: `${constants.generalUnit * 3}px ${constants.generalUnit * 5}px`
       }
     })
   }
