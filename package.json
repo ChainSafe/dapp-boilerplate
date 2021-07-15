@@ -8,41 +8,75 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "yarn wsrun --stages -c build",
-    "build:webapp": "yarn wsrun -p webapp -c build",
-    "start:dev": "yarn wsrun start:dev --parallel --exclude-missing",
-    "clean": "rm -rf ./node_modules && rm -rf ./*/node_modules",
-    "test:webapp": "cd Webapp && yarn test:watch"
+    "postinstall": "yarn compile",
+    "clean": "rm -rf ./node_modules && rm -rf ./*/**/node_modules",
+    "start": "yarn compile && craco --max_old_space_size=4096 start",
+    "build": "craco --max_old_space_size=4096 build",
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "extract": "lingui extract",
+    "compile": "lingui compile",
+    "lingui-version": "lingui --version",
+    "lint": "eslint './{src}/**/*.{js,jsx,ts,tsx}'"
   },
-  "workspaces": {
-    "packages": [
-      "Contracts",
-      "WebApp"
-    ],
-    "nohoist": [
-      "**/*"
-    ]
+  "engines": {
+    "node": ">=12",
+    "yarn": ">=1"
+  },
+  "dependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/runtime": "^7.14.6",
+    "@chainsafe/browser-storage-hooks": "^1.0.1",
+    "@chainsafe/common-components": "^1.0.29",
+    "@chainsafe/common-theme": "^1.0.10",
+    "@chainsafe/web3-context": "1.2.0",
+    "@lingui/core": "^3.7.2",
+    "@lingui/react": "^3.7.2",
+    "@types/uuid": "^8.3.0",
+    "axios": "0.21.1",
+    "babel-loader": "8.1.0",
+    "babel-plugin-macros": "^2.8.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "bnc-onboard": "1.27.0",
+    "clsx": "^1.1.1",
+    "dayjs": "^1.9.7",
+    "formik": "^2.2.5",
+    "mime-matcher": "^1.0.5",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-scripts": "3.4.4",
+    "react-toast-notifications": "^2.4.0",
+    "react-zoom-pan-pinch": "^1.6.1",
+    "typescript": "~4.0.5",
+    "yup": "^0.32.8",
+    "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
-    "chalk": "^2.0.1",
-    "jest": "^24.5.0",
-    "jest-haste-map": "^24.5.0",
-    "jest-resolve": "^24.5.0",
-    "precommit": "^1.2.2",
-    "wsrun": "3.6.5"
+    "@craco/craco": "^5.9.0",
+    "@lingui/babel-preset-react": "^2.9.2",
+    "@lingui/cli": "^3.7.2",
+    "@lingui/macro": "3.7.2",
+    "@types/jest": "^26.0.16",
+    "@types/node": "^16.3.2",
+    "@types/react": "^17.0.0",
+    "@types/react-beforeunload": "^2.1.0",
+    "@types/react-dom": "^17.0.9",
+    "@types/react-pdf": "^5.0.0",
+    "@types/react-toast-notifications": "^2.4.0",
+    "@types/yup": "^0.29.9",
+    "@types/zxcvbn": "^4.4.0",
+    "babel-plugin-macros": "^2.8.0"
   },
-  "resolutions": {
-    "**/hoist-non-react-statics": "^3.0.1"
-  },
-  "keywords": [
-    "NodeJS",
-    "React",
-    "Redux",
-    "Monorepo",
-    "Ethers"
-  ],
-  "engines": {
-    "node": ">=8.0",
-    "yarn": ">=1.9.4"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
