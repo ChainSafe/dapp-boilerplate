@@ -8,6 +8,7 @@ import AppWrapper from "./Components/Layouts/AppWrapper"
 import { lightTheme } from "./Themes/LightTheme"
 import { useLocalStorage } from "@chainsafe/browser-storage-hooks"
 import { LanguageProvider } from "./Contexts/LanguageContext"
+import { DataProvider } from "./Contexts/DataContext"
 
 const availableLanguages = [
   { id: "en", label: "English" },
@@ -21,7 +22,7 @@ const onboardConfig = {
       {
         walletName: "trust",
         rpcUrl:
-          "https://mainnet.infura.io/v3/a7e16429d2254d488d396710084e2cd3"
+          `https://mainnet.infura.io/v3/${process.env.INFURA_PROJECT_ID}`
       },
       { walletName: "metamask", preferred: true },
       { walletName: "authereum" },
@@ -31,7 +32,7 @@ const onboardConfig = {
       { walletName: "status" },
       {
         walletName: "walletConnect",
-        infuraKey: "a7e16429d2254d488d396710084e2cd3",
+        infuraKey: process.env.INFURA_PROJECT_ID,
         preferred: true
       }
     ]
@@ -54,11 +55,13 @@ const App = () => {
             checkNetwork={false}
             cacheWalletSelection={canUseLocalStorage}
           >
-          <Router>
-            <AppWrapper>
-              <Routes />
-            </AppWrapper>
-          </Router>
+            <DataProvider>
+              <Router>
+                <AppWrapper>
+                  <Routes />
+                </AppWrapper>
+              </Router>
+            </DataProvider>
           </Web3Provider>
         </ToasterProvider>
       </LanguageProvider>

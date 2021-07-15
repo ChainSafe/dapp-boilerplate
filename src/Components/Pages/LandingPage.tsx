@@ -1,8 +1,8 @@
 import React from "react"
-import LoginModule from "../Modules/LoginModule/LoginModule"
+import WalletConnectModule from "../Modules/WalletConnectModule"
 
 const LandingPage = () => {
-  return <LoginModule />
+  return <WalletConnectModule />
 }
 
 export default LandingPage
